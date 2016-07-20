@@ -12,7 +12,7 @@
 <p>Remember this is quick start for ME only, will make much more sense later.</p>
 <h2>Step 1</h2>
 Find a linux operating system with git installed.<br>
-Attempted to install on Raspberry Pie running Rasbian. It is already installed.
+Attempted to install on Raspberry Pi running Rasbian. It is already installed.
 
 <h2>Step 2</h2>
 Set up repository on GitHub BEFORE setting it up locally. This helps keep things in sync.
