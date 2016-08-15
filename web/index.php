@@ -16,7 +16,7 @@ Find a linux operating system with git installed.<br>
 Attempted to install on Raspberry Pi running Rasbian. It is already installed.
 
 <h2>Step 2 - Setting up a git repository (using GitHub)</h2>
-p>There are three options. (A) Set-up a local git repository, then add it to GitHub. (B) Set-up a repository on GitHub, then Clone it locally. (C) Fork an existing repository</p>
+<p>There are three options. (A) Set-up a local git repository, then add it to GitHub. (B) Set-up a repository on GitHub, then Clone it locally. (C) Fork an existing repository</p>
 <p>Please note this portion is incomplete and missing some very vital steps.</p>
 <dl>
     <dt>Option A - Local First</dt>
