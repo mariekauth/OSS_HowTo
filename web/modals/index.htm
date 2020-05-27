@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Modals</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script>
+        $(document).ready(function(){
+           $("#btn_confirm").click(function(){
+               modal_confirm('Are you sure?', modal_output, 'This is an argument for the function.');
+           });
+
+           function modal_output(str){
+               $("#modal_output").html(str);
+           }
+        });
+
+        /*
+         Developed by Marie Kauth
+         To use this function you must first have #modal_confirm on your page, I use a div tag
+         Example Function Call: onclick="modal_confirm('Are you sure?', myCustomFunction);"
+         If No, the window will close and nothing else will happen
+         If Yes, the custom function will be called
+         html - What you want your confirm message to say
+         myFunction - The name of the function that will be called upon success
+         args - Optional, can be a single value or an object
+         The following functions allow for consistency and faster development time
+         These four functions are separate and use different objects because sometimes they appear at the same time
+         */
+        function modal_confirm(html, myFunction, args){
+            var modal_width = 340;
+            if($(window).width() > 650){
+                modal_width = 600;
+            }
+            $("#modal_confirm").html(html).dialog({
+                title : 'Confirm',
+                modal : true,
+                width: modal_width,
+                buttons: {
+                    Yes: function(){
+                        $(this).dialog("close");
+                        myFunction(args);
+                    },
+                    No: function(){
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        }
+
+        /*
+         Developed by Marie Kauth
+         To use this function you must first have #modal_errors on your page, I use a div tag
+         Example Function Call: modal_errors('Missing X Field<br>Missing Y Field')
+         Ok will just close the error box, works similar to an alert
+         The following functions allow for consistency and faster development time
+         */
+        function modal_errors(html_errors){
+            var modal_width = 340;
+            if($(window).width() > 650){
+                modal_width = 600;
+            }
+            $("#modal_errors").html('<div class="errors">' + html_errors + '</div>').dialog({
+                title : 'Errors',
+                modal : true,
+                width: modal_width,
+                buttons: {
+                    Ok: function(){
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        }
+
+        /*
+         Developed by Marie Kauth
+         To use this function you must first have #modal_success on your page, I use a div tag
+         Example Function Call: modal_success('Record Saved Successfully')
+         Ok will just close the error box, works similar to an alert
+         The following functions allow for consistency and faster development time
+         */
+        function modal_success(html){
+            var modal_width = 340;
+            if($(window).width() > 650){
+                modal_width = 600;
+            }
+            $("#modal_success").html('<div class="success">' + html + '</div>').dialog({
+                title : 'Success',
+                modal : true,
+                width: modal_width,
+                buttons: {
+                    Ok: function(){
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        }
+
+        /*
+         Developed by Marie Kauth
+         To use this function you must first have #modal_form on your page, I use a div tag
+         Example Function Call: onclick="modal_confirm('My Form Name', 'html for my form<br><br><div class="buttons"></div>');"
+         Ok will just close the error box, works similar to an alert
+         The following functions allow for consistency and faster development time
+         */
+        function modal_form(title, html){
+            var modal_width = 340;
+            if($(window).width() > 650){
+                modal_width = 600;
+            }
+            $("#modal_form").html(html).dialog({
+                title : title,
+                modal : true,
+                width: modal_width
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="contentcontainer">
+    <h1>Modals</h1>
+    <p>Testing different modals</p>
+    <button id="btn_confirm">Confirm</button>
+    <div id="modal_output"></div>
+
+    <h2>Information</h2>
+    <p>These functions are poorly written. They are over-kill, but get a specific job done quickly.</p>
+    <h3>Task 1</h3>
+    <p>Task 1 - In order for these function to be used, you should NOT have to add elements to your page, such as:<br>
+        &lt;div id="modal_confirm"&gt;&lt;/div&gt;
+        <br>
+        &lt;div id="modal_sucess"&gt;&lt;/div&gt;
+        <br>
+        &lt;div id="modal_errors"&gt;&lt;/div&gt;
+        <br>
+        &lt;div id="modal_form"&gt;&lt;/div&gt;
+    </p>
+    <p>Instead the function itself should add the element to the DOM (*WARNING: It should not just keep adding elements)</p>
+    <h3>Task 2</h3>
+    <p>The Modal Confirm function should NOT require you to send a function. Ideally it should simply return a true or false value similar to the built in JavaScript confirm function.</p>
+</div>
+<div id="modal_confirm"></div>
+</body>
+</html>
